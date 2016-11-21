@@ -21,7 +21,7 @@ public class ConnectThread implements Runnable {
     public boolean isConnect;
     DataInputStream is;
     DataOutputStream os;
-    static ByteArrayInputStream bis;
+    static ByteArrayInputStream bis; //TODO Sprawdzić czy nie lepiej wykorzystać to zamiast DataInputStream
     static ByteArrayOutputStream bos;
 
     public ConnectThread(String ip, int port) {
@@ -71,8 +71,8 @@ public class ConnectThread implements Runnable {
         try {
             os.write(byteData);
             os.flush();
-        } catch (Exception exception) {
-            throw exception;
+        } catch (Exception e) {
+            e.getStackTrace();
         }
     }
 
