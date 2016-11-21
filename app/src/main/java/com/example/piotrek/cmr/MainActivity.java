@@ -50,26 +50,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //TODO Input nie zwraca NIC!!!!!!!!!
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DataInputStream is = null;
+                new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            connectThread.send(connectThread.os, connectThread.getMsg());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        text_receive.setText(connectThread.getResponse());
+                    }
 
-                try {
-                    ConnectThread.send(connectThread.os, ConnectThread.getMsg());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                };
 
 
-                try {
-                    byte[] buffer = ConnectThread.receive(is);
-                    String response = new String(buffer);
-                    text_receive.setText(response);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
             }
         });

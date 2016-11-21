@@ -2,6 +2,8 @@ package com.example.piotrek.cmr;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -13,12 +15,14 @@ import java.net.Socket;
 
 public class ConnectThread implements Runnable {
 
-    private Socket socket ;
+    private Socket socket;
     private String ip = "217.153.10.141";
     private int port = 6503;
     public boolean isConnect = false;
     DataInputStream is;
     DataOutputStream os;
+    static ByteArrayInputStream bis;
+    static ByteArrayOutputStream bos;
 
     public ConnectThread(String ip, int port) {
         this.ip = ip;
@@ -38,36 +42,41 @@ public class ConnectThread implements Runnable {
 
     }
 
-    public static byte[] receive(DataInputStream is) throws Exception
-    {
-        try
-        {
-            //TODO Check why input don't get any values
+    public String getResponse() {
+        String response = "";
+        try {
+            byte[] buffer = receive(is);
+            response = new String(buffer);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
+
+    public static byte[] receive(DataInputStream is) throws Exception {
+        try {
             byte[] inputData = new byte[1024];
             is.read(inputData);
+            bis.read(inputData);
             return inputData;
-        }
-        catch (Exception exception)
-        {
+        } catch (Exception exception) {
             throw exception;
         }
     }
 
-    public static void send(DataOutputStream os, byte[] byteData) throws Exception
-    {
-        try
-        {
+    public static void send(DataOutputStream os, byte[] byteData) throws Exception {
+        try {
             os.write(byteData);
             os.flush();
-        }
-        catch (Exception exception)
-        {
+        } catch (Exception exception) {
             throw exception;
         }
     }
 
-    public static byte[] getMsg()
-    {
+    public static byte[] getMsg() {
         byte first = 0x68;
         byte frameLength = 0x5;
         byte[] receiveAdr = new byte[2];
@@ -79,7 +88,7 @@ public class ConnectThread implements Runnable {
         byte msg = 0x09;
         byte answer = 0x00;
         byte[] CRC = new byte[2];
-        CRC[0] =  0x4A;
+        CRC[0] = 0x4A;
         CRC[1] = (byte) 0x98;
         byte end = 0x16;
 
@@ -99,7 +108,6 @@ public class ConnectThread implements Runnable {
         return request;
 
     }
-
 
 
 }
