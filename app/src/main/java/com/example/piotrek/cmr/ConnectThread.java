@@ -42,6 +42,7 @@ public class ConnectThread implements Runnable {
     {
         try
         {
+            //TODO Check why input don't get any values
             byte[] inputData = new byte[1024];
             is.read(inputData);
             return inputData;

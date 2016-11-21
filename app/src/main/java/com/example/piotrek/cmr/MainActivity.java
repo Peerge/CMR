@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
                 DataInputStream is = null;
 
                 try {
-                    connectThread.send(connectThread.os, connectThread.getMsg());
+                    ConnectThread.send(connectThread.os, ConnectThread.getMsg());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
 
                 try {
-                    byte[] buffer = connectThread.receive(is);
+                    byte[] buffer = ConnectThread.receive(is);
                     String response = new String(buffer);
                     text_receive.setText(response);
                 } catch (Exception e) {
