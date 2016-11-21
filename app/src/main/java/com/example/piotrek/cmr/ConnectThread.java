@@ -78,8 +78,8 @@ public class ConnectThread implements Runnable {
         byte msg = 0x09;
         byte answer = 0x00;
         byte[] CRC = new byte[2];
-        CRC[0] = (byte) 0x9A;
-        CRC[1] = 0x62;
+        CRC[0] =  0x4A;
+        CRC[1] = (byte) 0x98;
         byte end = 0x16;
 
         byte[] request = new byte[11];
