@@ -51,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //TODO Input nie zwraca NIC!!!!!!!!!
+        //TODO Sprawdzić czy output wysyła cokolwiek
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread() {
+                new Thread(connectThread) {
                     @Override
                     public void run() {
                         try {

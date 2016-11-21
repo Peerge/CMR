@@ -18,7 +18,7 @@ public class ConnectThread implements Runnable {
     private Socket socket;
     private String ip = "217.153.10.141";
     private int port = 6503;
-    public boolean isConnect = false;
+    public boolean isConnect;
     DataInputStream is;
     DataOutputStream os;
     static ByteArrayInputStream bis;
