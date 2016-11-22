@@ -10,10 +10,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private String ip = "172.21.77.137";
-    private int port = 4444;
+    private String ip = "217.153.10.141";
+    private int port = 6503;
     private Button btn_connect = null;
-    private Button btn_send = null;
+    private Button btn_restart = null;
     private TextView text_receive = null;
 
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_connect = (Button) this.findViewById(R.id.btn_connect);
-        btn_send = (Button) this.findViewById(R.id.btn_restart);
+        btn_restart = (Button) this.findViewById(R.id.btn_restart);
         text_receive = (TextView) this.findViewById(R.id.text_receive);
 
 
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //TODO Input zwraca NullPointerException
 
-        btn_send.setOnClickListener(new View.OnClickListener() {
+        btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 recreate();
