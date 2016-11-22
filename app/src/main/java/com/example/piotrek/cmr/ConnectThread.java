@@ -36,14 +36,15 @@ public class ConnectThread implements Runnable {
             e.printStackTrace();
         }
 
-
     }
 
     public String getResponse() {
         String response = "";
         try {
-            byte[] buffer = receive(is);
-            response = new String(buffer);
+            while(true) {
+                byte[] buffer = receive(is);
+                response = new String(buffer);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
