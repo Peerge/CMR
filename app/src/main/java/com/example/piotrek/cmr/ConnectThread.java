@@ -2,8 +2,6 @@ package com.example.piotrek.cmr;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -21,8 +19,7 @@ public class ConnectThread implements Runnable {
     public boolean isConnect;
     DataInputStream is;
     DataOutputStream os;
-    static ByteArrayInputStream bis; //TODO Sprawdzić czy nie lepiej wykorzystać to zamiast DataInputStream
-    static ByteArrayOutputStream bos;
+
 
     public ConnectThread(String ip, int port) {
         this.ip = ip;
@@ -60,7 +57,6 @@ public class ConnectThread implements Runnable {
         try {
             byte[] inputData = new byte[1024];
             is.read(inputData);
-            bis.read(inputData);
             return inputData;
         } catch (Exception exception) {
             throw exception;

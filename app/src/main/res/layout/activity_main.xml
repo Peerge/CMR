@@ -20,10 +20,10 @@
         android:id="@+id/btn_connect" />
 
     <Button
-        android:text="@string/send"
+        android:text="@string/restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_send"
+        android:id="@+id/btn_restart"
         android:layout_below="@+id/btn_connect"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn_send"
+        android:layout_below="@+id/btn_restart"
         android:layout_centerHorizontal="true"
         android:id="@+id/text_receive"
         android:text="@string/receive" />
