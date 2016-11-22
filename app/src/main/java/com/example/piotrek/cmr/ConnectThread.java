@@ -7,9 +7,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-/**
- * Created by piotrek on 21.11.16.
- */
 
 public class ConnectThread implements Runnable {
 
@@ -41,7 +38,7 @@ public class ConnectThread implements Runnable {
     public String getResponse() {
         String response = "";
         try {
-            while(true) {
+            while(is != null) {
                 byte[] buffer = receive(is);
                 response = new String(buffer);
             }
