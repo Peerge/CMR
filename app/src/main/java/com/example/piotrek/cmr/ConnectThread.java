@@ -84,20 +84,20 @@ public class ConnectThread implements Runnable {
         String textCrc = String.valueOf(crc);
         Log.d("CRC", textCrc );
 
-        byte first = 0x68;
+        byte first = (byte) (0x104 & 0xff);
         byte frameLength = 0x5;
         byte[] receiveAdr = new byte[2];
-        receiveAdr[0] = (byte) (0xff & 0xff);
-        receiveAdr[1] = (byte) (0xff & 0xff);
+        receiveAdr[0] = (byte) (0xaa & 0xff);
+        receiveAdr[1] = (byte) (0xaa & 0xff);
         byte[] sendAdr = new byte[2];
         sendAdr[0] = 0x1;
         sendAdr[1] = 0x15;
-        byte msg = 0x09;
+        byte msg = 0x9;
         byte answer = 0x00;
         byte[] CRC = new byte[2];
-        CRC[0] = (byte) (0xBA & 0xff);
-        CRC[1] = (byte) (0x8B & 0xff);
-        byte end = 0x16;
+        CRC[0] = (byte) (0x85 & 0xff);
+        CRC[1] = (byte) (0xAB & 0xff);
+        byte end = 0x22;
 
         byte[] request = new byte[11];
         request[0] = first;

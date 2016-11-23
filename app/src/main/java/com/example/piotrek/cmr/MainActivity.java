@@ -1,5 +1,6 @@
 package com.example.piotrek.cmr;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 text_receive.setText(connectThread.getResponse());
+                Intent intent = new Intent(MainActivity.this, NamePlate.class);
+                startActivity(intent);
             }
         });
         //TODO Input zwraca NullPointerException

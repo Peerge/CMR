@@ -4,4 +4,10 @@
     <string name="send">Send</string>
     <string name="receive">Receive:</string>
     <string name="restart">Restart</string>
+    <string name="manufacturer">Producent:</string>
+    <string name="deviceType">Typ urządzenia :</string>
+    <string name="deviceId">Numer fabryczny:</string>
+    <string name="dpVersion">Wersja tablicy DP:</string>
+    <string name="zdVersion">Wersja tablicy ZD:</string>
+    <string name="other">Inne informacje:</string>
 </resources>
