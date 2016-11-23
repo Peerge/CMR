@@ -10,12 +10,7 @@ public class NamePlateDetail {
     private String arrayDpVersion;
     private String arrayZdVersion;
     private String otherInfo;
-    private TextView manufacturerText;
-    private TextView deviceTypeText;
-    private TextView deviceIdText;
-    private TextView dpVersionText;
-    private TextView zdVersionText;
-    private TextView otherText;
+
 
     public NamePlateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
 

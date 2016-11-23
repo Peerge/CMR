@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/manufacturer"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -41,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/deviceType"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/deviceId"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -75,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dpVersion"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -92,12 +96,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/zdVersion"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/adVersion"/>
+            android:id="@+id/zdVersion" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -109,7 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/other"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
