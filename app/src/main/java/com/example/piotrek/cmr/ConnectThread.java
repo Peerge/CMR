@@ -4,8 +4,6 @@ import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -16,8 +14,8 @@ public class ConnectThread implements Runnable {
     private String ip = "217.153.10.141";
     private int port = 6503;
     public boolean isConnect;
-    DataInputStream is;
-    DataOutputStream os;
+    BufferedInputStream is;
+    BufferedOutputStream os;
 
 
     public ConnectThread(String ip, int port) {
@@ -28,8 +26,8 @@ public class ConnectThread implements Runnable {
     public void run() {
         try {
             socket = new Socket(ip, port);
-            is = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-            os = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+            is = new BufferedInputStream(socket.getInputStream());
+            os = new BufferedOutputStream(socket.getOutputStream());
             isConnect = socket.isConnected();
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,7 +51,7 @@ public class ConnectThread implements Runnable {
     }
 
 
-    public static byte[] receive(DataInputStream is) throws Exception {
+    public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
             byte[] inputData = new byte[1024];
             is.read(inputData);
@@ -63,7 +61,7 @@ public class ConnectThread implements Runnable {
         }
     }
 
-    public static void send(DataOutputStream os, byte[] byteData) throws Exception {
+    public static void send(BufferedOutputStream os, byte[] byteData) throws Exception {
         try {
             os.write(byteData);
             os.flush();
