@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 text_receive.setText(connectThread.getResponse());
-                Intent intent = new Intent(MainActivity.this, NamePlate.class);
+                Intent intent = new Intent(MainActivity.this, NamePlateActivity.class);
                 startActivity(intent);
             }
         });

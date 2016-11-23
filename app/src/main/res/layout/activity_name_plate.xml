@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.piotrek.cmr.NamePlate"
+    tools:context="com.example.piotrek.cmr.NamePlateActivity"
     android:layout_alignParentBottom="false"
     android:layout_alignParentTop="false"
     android:orientation="vertical">
@@ -23,12 +23,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/manufacturer"/>
+            android:text="@string/manufacturer"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView1"/>
+            android:id="@+id/manufacturer"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,12 +40,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/deviceType"/>
+            android:text="@string/deviceType"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView2"/>
+            android:id="@+id/deviceType"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -55,12 +57,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/deviceId"/>
+            android:text="@string/deviceId"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView3"/>
+            android:id="@+id/deviceId"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -71,12 +74,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/dpVersion"/>
+            android:text="@string/dpVersion"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView4"/>
+            android:id="@+id/dpVersion"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -87,12 +91,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/zdVersion"/>
+            android:text="@string/zdVersion"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView5"/>
+            android:id="@+id/adVersion"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -103,12 +108,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/other"/>
+            android:text="@string/other"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:id="@+id/rowView6"/>
+            android:id="@+id/other"/>
     </LinearLayout>
 
 

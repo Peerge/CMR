@@ -1,34 +1,23 @@
 package com.example.piotrek.cmr;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.widget.LinearLayout;
 
-public class NamePlate extends AppCompatActivity {
+import android.widget.TextView;
+
+public class NamePlateDetail {
     private String manufacturer;
     private String deviceType;
     private String deviceId;
     private String arrayDpVersion;
     private String arrayZdVersion;
     private String otherInfo;
+    private TextView manufacturerText;
+    private TextView deviceTypeText;
+    private TextView deviceIdText;
+    private TextView dpVersionText;
+    private TextView zdVersionText;
+    private TextView otherText;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_name_plate);
-
-        LinearLayout l1 = (LinearLayout) findViewById(R.id.row1);
-        LinearLayout l3 = (LinearLayout) findViewById(R.id.row3);
-        LinearLayout l5 = (LinearLayout) findViewById(R.id.row5);
-
-        l1.setBackgroundColor(getResources().getColor(R.color.table));
-        l3.setBackgroundColor(getResources().getColor(R.color.table));
-        l5.setBackgroundColor(getResources().getColor(R.color.table));
-    }
-
-
-    public NamePlate(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
+    public NamePlateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
 
         this.manufacturer = new String();
         this.deviceType = new String();
@@ -93,5 +82,6 @@ public class NamePlate extends AppCompatActivity {
     public void setOtherInfo(String otherInfo) {
         this.otherInfo = otherInfo;
     }
+
 
 }
