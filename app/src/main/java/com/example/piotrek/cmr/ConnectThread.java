@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
@@ -13,6 +14,7 @@ public class ConnectThread implements Runnable {
     private Socket socket;
     private String ip = "217.153.10.141";
     private int port = 6503;
+    private int timeOut; //TODO Wstawić timeout do socketa
     public boolean isConnect;
     BufferedInputStream is;
     BufferedOutputStream os;
@@ -25,13 +27,15 @@ public class ConnectThread implements Runnable {
 
     public void run() {
         try {
-            socket = new Socket(ip, port);
+            socket = new Socket();
+            socket.connect(new InetSocketAddress(this.ip, this.port));
             is = new BufferedInputStream(socket.getInputStream());
             os = new BufferedOutputStream(socket.getOutputStream());
             isConnect = socket.isConnected();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
 
