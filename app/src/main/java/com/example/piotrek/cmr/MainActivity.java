@@ -19,9 +19,14 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_connect = null;
     private Button btn_restart = null;
     private TextView text_receive = null;
+    private String gmAddress = "115";
+    private String hostAddress = "AAAA";
 
-
+    GetNameplate getnameplate = new GetNameplate(gmAddress, hostAddress);
     ConnectThread connectThread;
+
+    public MainActivity() throws Exception {
+    }
 
 
     @Override
@@ -45,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
                     btn_connect.setText("Disconnect");
                 }
                 try {
-                    connectThread.send(connectThread.os, connectThread.getMsg());
+                    connectThread.send(connectThread.os, getnameplate.getQuestion());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 text_receive.setText(connectThread.getResponse());
                 Intent intent = new Intent(MainActivity.this, NamePlateActivity.class);
                 startActivity(intent);
+
             }
         });
         //TODO Input zwraca NullPointerException

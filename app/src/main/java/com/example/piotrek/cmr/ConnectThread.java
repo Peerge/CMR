@@ -89,19 +89,25 @@ public class ConnectThread implements Runnable {
         byte first = (byte) 104;
         byte frameLength = 0x5;
         byte[] receiveAdr = new byte[2];
-        receiveAdr[0] = (byte) (0xaa & 0xff);
-        receiveAdr[1] = (byte) (0xaa & 0xff);
+        receiveAdr[0] = (byte) 0xaa ;
+        receiveAdr[1] = (byte) 0xaa ;
         byte[] sendAdr = new byte[2];
         sendAdr[0] = 0x011;
         sendAdr[1] = (byte) 0x500 ;
         byte msg = 0x9;
-        byte answer = 0x00;
         byte[] CRC = new byte[2];
-        CRC[0] = (byte) (0x85 & 0xff);
-        CRC[1] = (byte) (0xAB & 0xff);
+        CRC[0] = (byte) 0x222;
+        CRC[1] = (byte) 0x8fae;
         byte end = (byte) 22;
 
-        byte[] request = new byte[11];
+        byte[] CRCC = new byte[] {frameLength, receiveAdr[0], receiveAdr[1], sendAdr[0], sendAdr[1], msg };
+
+        byte[] CRCCC = Crc.getCRChexByte(CRCC);
+        String cos = Crc.getCRCHexString(CRCCC);
+        Log.d("Nowe CRC", cos);
+
+
+        byte[] request = new byte[10];
         request[0] = first;
         request[1] = frameLength;
         request[2] = receiveAdr[0];
@@ -109,10 +115,9 @@ public class ConnectThread implements Runnable {
         request[4] = sendAdr[0];
         request[5] = sendAdr[1];
         request[6] = msg;
-        request[7] = answer;
-        request[8] = CRC[0];
-        request[9] = CRC[1];
-        request[10] = end;
+        request[7] = CRC[0];
+        request[8] = CRC[1];
+        request[9] = end;
 
         return request;
 
