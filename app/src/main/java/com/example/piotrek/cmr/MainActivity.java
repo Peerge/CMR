@@ -13,14 +13,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity"; //TODO Sprawdzić czy input jest dobrze napisany bo wyrzuca NullPointera
     private String ip = "217.153.10.141";
     private int port = 6503;
     private Button btn_connect = null;
     private Button btn_restart = null;
     private TextView text_receive = null;
     private String gmAddress = "115";
-    private String hostAddress = "AAAA";
+    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
 
     GetNameplate getnameplate = new GetNameplate(gmAddress, hostAddress);
     ConnectThread connectThread;
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //TODO Input zwraca NullPointerException
 
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override

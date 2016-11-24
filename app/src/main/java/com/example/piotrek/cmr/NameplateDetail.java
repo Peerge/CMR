@@ -13,13 +13,13 @@ public class NameplateDetail {
     private String otherInfo;
 
     public NameplateDetail() {
-        this.manufacturer = "";
-        this.deviceType = "";
-        this.deviceId = "";
-        this.arrayDpVersion = "";
-        this.arrayZdVersion = "";
-        this.otherInfo = "";
-        this.allInformation = "";
+        this.manufacturer = new String();
+        this.deviceType = new String();
+        this.deviceId = new String();
+        this.arrayDpVersion = new String();
+        this.arrayZdVersion = new String();
+        this.otherInfo = new String();
+        this.allInformation = new String();
     }
 
     public NameplateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
