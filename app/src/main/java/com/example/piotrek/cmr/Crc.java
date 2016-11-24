@@ -11,18 +11,10 @@ public class Crc {
             for (int i = 0; i < 8; i++) {
                 boolean bit;
                 boolean c15;
-                if (((b >> (7 - i)) & 1) == 1) {
-                    bit = true;
-                } else {
-                    bit = false;
-                }
-                if (((crc >> 15) & 1) == 1) {
-                    c15 = true;
-                } else {
-                    c15 = false;
-                }
+                bit = ((b >> (7 - i)) & 1) == 1;
+                c15 = ((crc >> 15) & 1) == 1;
                 crc <<= 1;
-                if (!(c15 ^ bit)) {
+                if (c15 == bit) {
                     crc ^= polynomial;
                 }
             }
@@ -36,18 +28,10 @@ public class Crc {
             for (int i = 0; i < 8; i++) {
                 boolean bit;
                 boolean c15;
-                if (((b >> (7 - i)) & 1) == 1) {
-                    bit = true;
-                } else {
-                    bit = false;
-                }
-                if (((crc >> 15) & 1) == 1) {
-                    c15 = true;
-                } else {
-                    c15 = false;
-                }
+                bit = ((b >> (7 - i)) & 1) == 1;
+                c15 = ((crc >> 15) & 1) == 1;
                 crc <<= 1;
-                if (!(c15 ^ bit)) {
+                if (c15 == bit) {
                     crc ^= polynomial;
                 }
             }

@@ -50,13 +50,15 @@ public class MainActivity extends AppCompatActivity {
                     btn_connect.setText("Disconnect");
                 }
                 try {
-                    connectThread.send(connectThread.os, getnameplate.getQuestion());
+                    ConnectThread.send(connectThread.os, getnameplate.getQuestion());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 text_receive.setText(connectThread.getResponse());
-                Intent intent = new Intent(MainActivity.this, NamePlateActivity.class);
+                Intent intent = new Intent(MainActivity.this, NameplateActivity.class);
                 startActivity(intent);
+                ReadNameplate rnp = new ReadNameplate();
+                rnp.readNameplate();
 
             }
         });
