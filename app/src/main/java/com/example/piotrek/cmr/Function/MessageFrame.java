@@ -28,14 +28,14 @@ public class MessageFrame {
         this.msgFrameAll[this.msgFrameAll.length - 1] = STOP_BYTE;
     }
 
-    protected void prepareQuestion(String gmAdress, String hostAdress) throws Exception {
+    protected void prepareQuestion(String gmAddress, String hostAddress) throws Exception {
         this.msgFrameAll[0] = START_BYTE;
-        if (gmAdress.length() == 0) {
+        if (gmAddress.length() == 0) {
             System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString("65535")), 0, this.msgFrame, 2, 2);
         } else {
-            System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString(gmAdress)), 0, this.msgFrame, 2, 2);
+            System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString(gmAddress)), 0, this.msgFrame, 2, 2);
         }
-        System.arraycopy(Converter.hexStringToByteArray(hostAdress), 0, this.msgFrame, 4, 2);
+        System.arraycopy(Converter.hexStringToByteArray(hostAddress), 0, this.msgFrame, 4, 2);
     }
 
     protected void setQuestionLenght(int sizeDataInFrame) {
