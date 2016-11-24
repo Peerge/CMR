@@ -28,11 +28,13 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/btn_restart"
         android:layout_centerHorizontal="true"
-        android:id="@+id/text_receive"
-        android:text="@string/receive" />
+        android:id="@+id/contentFrame">
+
+    </FrameLayout>
+
 </RelativeLayout>

@@ -22,7 +22,7 @@ public class ReadNameplate {
     public NameplateDetail readNameplate() {
         NameplateDetail nameplateDetails = new NameplateDetail();
         try {
-            String data = Converter.convertToHex(ct.receive(ct.is));
+            String data = Converter.convertToHex(ct.getResponse());
             String responseNameplate = "";
             ArrayList<String> responseNamePlateList = new ArrayList();
             for (int i = 0; i < data.length(); i += 2) {
