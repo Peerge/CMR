@@ -1,9 +1,9 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Detail;
 
 
 import android.widget.TextView;
 
-public class NamePlateDetail {
+public class NameplateDetail {
     private String allInformation;
     private String manufacturer;
     private String deviceType;
@@ -12,17 +12,17 @@ public class NamePlateDetail {
     private String arrayZdVersion;
     private String otherInfo;
 
-    public NamePlateDetail() {
-        this.manufacturer = "";
-        this.deviceType = "";
-        this.deviceId = "";
-        this.arrayDpVersion = "";
-        this.arrayZdVersion = "";
-        this.otherInfo = "";
-        this.allInformation = "";
+    public NameplateDetail() {
+        this.manufacturer = new String();
+        this.deviceType = new String();
+        this.deviceId = new String();
+        this.arrayDpVersion = new String();
+        this.arrayZdVersion = new String();
+        this.otherInfo = new String();
+        this.allInformation = new String();
     }
 
-    public NamePlateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
+    public NameplateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
 
         this.manufacturer = new String();
         this.deviceType = new String();

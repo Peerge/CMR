@@ -1,4 +1,4 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,6 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.piotrek.cmr.Connection.ConnectThread;
+import com.example.piotrek.cmr.Function.GetNameplate;
+import com.example.piotrek.cmr.R;
+import com.example.piotrek.cmr.Function.ReadNameplate;
 
 public class MainActivity extends AppCompatActivity {
 

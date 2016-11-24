@@ -1,5 +1,10 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Function;
 
+
+import com.example.piotrek.cmr.BuildConfig;
+import com.example.piotrek.cmr.Connection.ConnectThread;
+import com.example.piotrek.cmr.Detail.NameplateDetail;
+import com.example.piotrek.cmr.Util.Converter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

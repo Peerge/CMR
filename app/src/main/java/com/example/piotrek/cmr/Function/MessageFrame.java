@@ -1,5 +1,8 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Function;
 
+
+import com.example.piotrek.cmr.Util.Converter;
+import com.example.piotrek.cmr.Util.Crc;
 
 import java.nio.ByteBuffer;
 

@@ -1,6 +1,8 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Connection;
 
 import android.util.Log;
+
+import com.example.piotrek.cmr.Util.Crc;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -16,8 +18,8 @@ public class ConnectThread implements Runnable {
     private int port = 6503;
     private int timeOut; //TODO Wstawić timeout do socketa(Opcjonalne)
     public boolean isConnect;
-    BufferedInputStream is;
-    BufferedOutputStream os;
+    public BufferedInputStream is;
+    public BufferedOutputStream os;
 
 
     public ConnectThread(String ip, int port) {

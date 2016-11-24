@@ -1,13 +1,12 @@
-package com.example.piotrek.cmr;
+package com.example.piotrek.cmr.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import com.example.piotrek.cmr.Detail.NameplateDetail;
+import com.example.piotrek.cmr.R;
 
 public class NameplateActivity extends AppCompatActivity {
     private TextView manufacturerText;
