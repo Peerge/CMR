@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 ReadNameplate rnp = new ReadNameplate();
                 rnp.readNameplate();
                 showNameplate();
-                setColor();
+//                setColor();
                 setText();
             }
         });
