@@ -44,11 +44,9 @@ public class ConnectThread implements Runnable {
     public byte[] getResponse() {
         byte[] buffer = null;
         try {
-            while(is != null) {
+            while (is != null) {
                 buffer = receive(is);
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
