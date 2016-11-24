@@ -18,6 +18,7 @@ public class NamePlateActivity extends AppCompatActivity {
     private TextView zdVersionText;
     private TextView otherText;
     NamePlateDetail np;
+    public byte[] responseInByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class NamePlateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_name_plate);
         setColor();
         setText();
+        readNameplate();
     }
 
     public void setColor() {
@@ -61,13 +63,14 @@ public class NamePlateActivity extends AppCompatActivity {
             otherText.setText("Brak danych");
         }
     }
-
+    public byte[] getReadedDataByteWithoutCRC() {
+        return Arrays.copyOfRange(this.responseInByte, 8, this.responseInByte.length - 3);
+    }
 
     public NamePlateDetail readNameplate() {
         NamePlateDetail nameplateDetails = new NamePlateDetail();
-        ConnectThread ct = null;
         try {
-            String data = Converter.convertToHex(ct.getMsg());
+            String data = Converter.convertToHex(getReadedDataByteWithoutCRC());
             String splitData = "";
             ArrayList<String> splitDataList = new ArrayList();
             for (int i = 0; i < data.length(); i += 2) {
