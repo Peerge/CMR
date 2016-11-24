@@ -19,18 +19,19 @@
         android:orientation="horizontal"
         android:id="@+id/row1"
         android:gravity="top|start"
-        android:padding="10dp"
-        android:background="@color/colorPrimary">
+        android:padding="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/manufacturer"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/manufacturer"/>
     </LinearLayout>
     <LinearLayout
@@ -44,11 +45,13 @@
             android:layout_height="match_parent"
             android:text="@string/deviceType"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/deviceType"/>
     </LinearLayout>
     <LinearLayout
@@ -56,18 +59,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/row3"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="@color/colorPrimary">
+        android:padding="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/deviceId"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/deviceId"/>
     </LinearLayout>
     <LinearLayout
@@ -81,11 +85,13 @@
             android:layout_height="match_parent"
             android:text="@string/dpVersion"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/dpVersion"/>
     </LinearLayout>
     <LinearLayout
@@ -93,18 +99,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/row5"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="@color/colorPrimary">
+        android:padding="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/zdVersion"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/zdVersion" />
     </LinearLayout>
     <LinearLayout
@@ -118,11 +125,13 @@
             android:layout_height="match_parent"
             android:text="@string/other"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="#ffffff"
             android:id="@+id/other"/>
     </LinearLayout>
 
