@@ -12,6 +12,15 @@ public class NamePlateDetail {
     private String arrayZdVersion;
     private String otherInfo;
 
+    public NamePlateDetail() {
+        this.manufacturer = "";
+        this.deviceType = "";
+        this.deviceId = "";
+        this.arrayDpVersion = "";
+        this.arrayZdVersion = "";
+        this.otherInfo = "";
+        this.allInformation = "";
+    }
 
     public NamePlateDetail(String manufacturer, String deviceType, String deviceId, String arrayDpVersion, String arrayZdVersion, String otherInfo) {
 

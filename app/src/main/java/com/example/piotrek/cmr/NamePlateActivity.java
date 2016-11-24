@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class NamePlateActivity extends AppCompatActivity {
@@ -61,66 +62,63 @@ public class NamePlateActivity extends AppCompatActivity {
         }
     }
 
-//    public NamePlateDetail readNameplate() {
-//        enableExecutingFunctions();
-//        NamePlateDetail nameplateDetails = new NamePlateDetail();
-//        try {
-//            HeadDataDetailsNew dataHead = writeOutAndGetData(new GetNameplate(this.addressGM, this.addressOfHostComputer).getQuestion());
-//            if (dataHead.responseInByte[7] == 127 || dataHead.responseInByte[7] == 126) {
-//                return null;
-//            }
-//            String data = Converter.convertToHex(dataHead.getReadedDataByteWithoutCRC());
-//            String splitData = BuildConfig.FLAVOR;
-//            ArrayList<String> splitDataList = new ArrayList();
-//            for (int i = 0; i < data.length(); i += 2) {
-//                if (data.substring(i, i + 2).equals("00")) {
-//                    splitDataList.add(splitData);
-//                    splitData = BuildConfig.FLAVOR;
-//                } else {
-//                    splitData = splitData + data.substring(i, i + 2);
-//                }
-//            }
-//            if (splitDataList.size() >= 1) {
-//                nameplateDetails.setManufacturer(Converter.convertHexToString((String) splitDataList.get(0)));
-//            } else {
-//                nameplateDetails.setManufacturer("Brak danych");
-//            }
-//            if (splitDataList.size() >= 2) {
-//                nameplateDetails.setDeviceType(Converter.convertHexToString((String) splitDataList.get(1)));
-//            } else {
-//                nameplateDetails.setDeviceType("Brak danych");
-//            }
-//            if (splitDataList.size() >= 3) {
-//                nameplateDetails.setDeviceId(Converter.convertHexToString((String) splitDataList.get(2)));
-//            } else {
-//                nameplateDetails.setDeviceId("Brak danych");
-//            }
-//            if (splitDataList.size() >= 4) {
-//                nameplateDetails.setArrayDpVersion(Converter.convertHexToString((String) splitDataList.get(3)));
-//            } else {
-//                nameplateDetails.setArrayDpVersion("Brak danych");
-//            }
-//            if (splitDataList.size() >= 5) {
-//                nameplateDetails.setArrayZdVersion(Converter.convertHexToString((String) splitDataList.get(4)));
-//            } else {
-//                nameplateDetails.setArrayZdVersion("Brak danych");
-//            }
-//            if (splitDataList.size() >= 7) {
-//                nameplateDetails.setOtherInfo(Converter.convertHexToString((String) splitDataList.get(6)));
-//            } else {
-//                nameplateDetails.setOtherInfo("Brak danych");
-//            }
-//            String allNameplateData = "";
-//            Iterator it = splitDataList.iterator();
-//            while (it.hasNext()) {
-//                allNameplateData = allNameplateData + Converter.convertHexToString((String) it.next()) + " ";
-//            }
-//            nameplateDetails.setAllInformation(allNameplateData);
-//            return nameplateDetails;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+
+    public NamePlateDetail readNameplate() {
+        NamePlateDetail nameplateDetails = new NamePlateDetail();
+        ConnectThread ct = null;
+        try {
+            String data = Converter.convertToHex(ct.getMsg());
+            String splitData = "";
+            ArrayList<String> splitDataList = new ArrayList();
+            for (int i = 0; i < data.length(); i += 2) {
+                if (data.substring(i, i + 2).equals("00")) {
+                    splitDataList.add(splitData);
+                    splitData = BuildConfig.FLAVOR;
+                } else {
+                    splitData = splitData + data.substring(i, i + 2);
+                }
+            }
+            if (splitDataList.size() >= 1) {
+                nameplateDetails.setManufacturer(Converter.convertHexToString((String) splitDataList.get(0)));
+            } else {
+                nameplateDetails.setManufacturer("Brak danych");
+            }
+            if (splitDataList.size() >= 2) {
+                nameplateDetails.setDeviceType(Converter.convertHexToString((String) splitDataList.get(1)));
+            } else {
+                nameplateDetails.setDeviceType("Brak danych");
+            }
+            if (splitDataList.size() >= 3) {
+                nameplateDetails.setDeviceId(Converter.convertHexToString((String) splitDataList.get(2)));
+            } else {
+                nameplateDetails.setDeviceId("Brak danych");
+            }
+            if (splitDataList.size() >= 4) {
+                nameplateDetails.setArrayDpVersion(Converter.convertHexToString((String) splitDataList.get(3)));
+            } else {
+                nameplateDetails.setArrayDpVersion("Brak danych");
+            }
+            if (splitDataList.size() >= 5) {
+                nameplateDetails.setArrayZdVersion(Converter.convertHexToString((String) splitDataList.get(4)));
+            } else {
+                nameplateDetails.setArrayZdVersion("Brak danych");
+            }
+            if (splitDataList.size() >= 7) {
+                nameplateDetails.setOtherInfo(Converter.convertHexToString((String) splitDataList.get(6)));
+            } else {
+                nameplateDetails.setOtherInfo("Brak danych");
+            }
+            String allNameplateData = "";
+            Iterator it = splitDataList.iterator();
+            while (it.hasNext()) {
+                allNameplateData = allNameplateData + Converter.convertHexToString((String) it.next()) + " ";
+            }
+            nameplateDetails.setAllInformation(allNameplateData);
+            return nameplateDetails;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }
