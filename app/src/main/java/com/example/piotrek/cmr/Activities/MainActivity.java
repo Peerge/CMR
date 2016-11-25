@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                Intent intent = new Intent(MainActivity.this, NameplateActivity.class);
-//                startActivity(intent);
+
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
                 ReadNameplate rnp = new ReadNameplate();
@@ -110,15 +109,6 @@ public class MainActivity extends AppCompatActivity {
         View child = getLayoutInflater().inflate(R.layout.activity_name_plate, null);
         contentFrame.addView(child);
 
-    }
-    public void setColor() {
-        LinearLayout l1 = (LinearLayout) findViewById(R.id.row1);
-        LinearLayout l3 = (LinearLayout) findViewById(R.id.row3);
-        LinearLayout l5 = (LinearLayout) findViewById(R.id.row5);
-
-        l1.setBackgroundColor(getResources().getColor(R.color.table));
-        l3.setBackgroundColor(getResources().getColor(R.color.table));
-        l5.setBackgroundColor(getResources().getColor(R.color.table));
     }
 
     public void setText() {

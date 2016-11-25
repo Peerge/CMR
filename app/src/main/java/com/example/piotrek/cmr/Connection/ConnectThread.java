@@ -16,7 +16,6 @@ public class ConnectThread implements Runnable {
     private Socket socket;
     private String ip = "217.153.10.141";
     private int port = 6503;
-    private int timeOut; //TODO Wstawić timeout do socketa(Opcjonalne)
     public boolean isConnect;
     public BufferedInputStream is;
     public BufferedOutputStream os;
