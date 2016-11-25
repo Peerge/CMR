@@ -54,10 +54,8 @@ public class ConnectThread implements Runnable {
 
     public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
-            byte[] inputData = new byte[1024];
-            while (is.available() != -1) {
-                is.read(inputData, 0, inputData.length);
-            }
+            byte[] inputData = new byte[16];
+            is.read(inputData, 0, inputData.length);
             return inputData;
         } catch (Exception exception) {
             throw exception;
