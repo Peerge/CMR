@@ -28,8 +28,8 @@ public class ConnectThread implements Runnable {
         try {
             socket = new Socket();
             socket.connect(new InetSocketAddress(this.ip, this.port));
-            is = new BufferedInputStream(socket.getInputStream());
             os = new BufferedOutputStream(socket.getOutputStream());
+            is = new BufferedInputStream(socket.getInputStream());
             isConnect = socket.isConnected();
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,6 +68,8 @@ public class ConnectThread implements Runnable {
         try {
             os.write(byteData, 0, byteData.length);
             os.flush();
+            Log.d("OutputStream", String.valueOf(os));
+
         } catch (Exception e) {
             e.getStackTrace();
         }
