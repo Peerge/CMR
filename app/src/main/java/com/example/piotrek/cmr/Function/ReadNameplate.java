@@ -69,6 +69,4 @@ public class ReadNameplate {
             return null;
         }
     }
-
-
 }
