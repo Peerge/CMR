@@ -68,7 +68,6 @@ public class ConnectThread implements Runnable {
         try {
             os.write(byteData, 0, byteData.length);
             os.flush();
-
         } catch (Exception e) {
             e.getStackTrace();
         }
