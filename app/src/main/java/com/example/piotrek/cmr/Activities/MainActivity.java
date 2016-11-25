@@ -2,6 +2,7 @@ package com.example.piotrek.cmr.Activities;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -21,12 +22,12 @@ import com.example.piotrek.cmr.R;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //TODO Sprawdzić czy input jest dobrze napisany bo wyrzuca NullPointera
-    private String ip = "217.153.10.141";
-    private int port = 6503;
+    private String ip = "172.21.77.137";
+    private int port = 4444;
     private Button btn_connect = null;
     private Button btn_restart = null;
-    private String gmAddress = "115";
-    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
+    private String gmAddress = "11500";
+    private String hostAddress = "FFFF"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
     private TextView manufacturerText;
     private TextView deviceTypeText;
     private TextView deviceIdText;
@@ -69,8 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 //                Intent intent = new Intent(MainActivity.this, NameplateActivity.class);
 //                startActivity(intent);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
                 ReadNameplate rnp = new ReadNameplate();
-                rnp.readNameplate();
+                rnp.readNameplate(connectThread);
                 showNameplate();
 //                setColor();
                 setText();

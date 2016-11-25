@@ -1,6 +1,8 @@
 package com.example.piotrek.cmr.Function;
 
 
+import android.support.v4.view.MotionEventCompat;
+
 import com.example.piotrek.cmr.BuildConfig;
 import com.example.piotrek.cmr.Connection.ConnectThread;
 import com.example.piotrek.cmr.Detail.NameplateDetail;
@@ -12,17 +14,11 @@ import java.util.Iterator;
 
 public class ReadNameplate {
     public byte[] responseInByte;
-    ConnectThread ct;
 
-
-    public byte[] getReadedDataByteWithoutCRC() {
-        return Arrays.copyOfRange(this.responseInByte, 8, this.responseInByte.length - 3);
-    }
-
-    public NameplateDetail readNameplate() {
+    public NameplateDetail readNameplate(ConnectThread ct) {
         NameplateDetail nameplateDetails = new NameplateDetail();
         try {
-            String data = Converter.convertToHex(ct.getResponse());
+            String data = Converter.convertToHex(ct.receive(ct.is));
             String responseNameplate = "";
             ArrayList<String> responseNamePlateList = new ArrayList();
             for (int i = 0; i < data.length(); i += 2) {
@@ -75,4 +71,6 @@ public class ReadNameplate {
             return null;
         }
     }
+
+
 }
