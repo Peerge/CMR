@@ -1,9 +1,6 @@
 package com.example.piotrek.cmr.Connection;
 
-import android.os.AsyncTask;
 import android.util.Log;
-
-import com.example.piotrek.cmr.Util.Crc;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -57,10 +54,9 @@ public class ConnectThread implements Runnable {
 
     public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
-            byte[] inputData = null;
-            while(is!=null) {
-                is.read(inputData);
-
+            byte[] inputData = new byte[1024];
+            while (is.available() != -1) {
+                is.read(inputData, 0, inputData.length);
             }
             return inputData;
         } catch (Exception exception) {

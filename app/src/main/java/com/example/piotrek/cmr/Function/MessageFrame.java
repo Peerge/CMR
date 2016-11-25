@@ -10,41 +10,37 @@ public class MessageFrame {
 
     protected static final byte START_BYTE = (byte) 104;
     protected static final byte STOP_BYTE = (byte) 22;
-    protected byte[] msgFrame;
-    protected byte[] msgFrameAll;
+    protected byte[] question;
+    protected byte[] questionFrame;
 
     public MessageFrame() {
-        this.msgFrame = null;
-        this.msgFrameAll = null;
+        this.question = null;
+        this.questionFrame = null;
     }
 
     public byte[] getQuestion() {
-        return this.msgFrameAll;
+        return this.questionFrame;
     }
 
-    protected void prepareCheckSum() throws Exception {
-        System.arraycopy(Crc.getCRChexByte(this.msgFrame), 0, this.msgFrameAll, this.msgFrameAll.length - 3, 2);
-        System.arraycopy(this.msgFrame, 0, this.msgFrameAll, 1, this.msgFrame.length);
-        this.msgFrameAll[this.msgFrameAll.length - 1] = STOP_BYTE;
+    protected void getCrc() throws Exception {
+        System.arraycopy(Crc.getCRChexByte(this.question), 0, this.questionFrame, this.questionFrame.length - 3, 2);
+        System.arraycopy(this.question, 0, this.questionFrame, 1, this.question.length);
+        this.questionFrame[this.questionFrame.length - 1] = STOP_BYTE;
     }
 
     protected void prepareQuestion(String gmAddress, String hostAddress) throws Exception {
-        this.msgFrameAll[0] = START_BYTE;
-        if (gmAddress.length() == 0) {
-            System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString("65535")), 0, this.msgFrame, 2, 2);
-        } else {
-            System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString(gmAddress)), 0, this.msgFrame, 2, 2);
-        }
-        System.arraycopy(Converter.hexStringToByteArray(hostAddress), 0, this.msgFrame, 4, 2);
+        this.questionFrame[0] = START_BYTE;
+        System.arraycopy(Converter.hexStringToByteArray(Converter.makeHexFromString(gmAddress)), 0, this.question, 2, 2);
+        System.arraycopy(Converter.hexStringToByteArray(hostAddress), 0, this.question, 4, 2);
     }
 
     protected void setQuestionLenght(int sizeDataInFrame) {
         byte[] questionLenght = ByteBuffer.allocate(4).putInt(sizeDataInFrame).array();
-        this.msgFrame[0] = questionLenght[3];
-        this.msgFrame[1] = questionLenght[2];
+        this.question[0] = questionLenght[3];
+        this.question[1] = questionLenght[2];
     }
 
     protected void setFunctionCode(byte function_number) {
-        this.msgFrame[6] = function_number;
+        this.question[6] = function_number;
     }
 }
