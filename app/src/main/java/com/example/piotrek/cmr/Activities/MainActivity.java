@@ -76,10 +76,12 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         ReadNameplate rnp = new ReadNameplate();
                         rnp.readNameplate(connectThread);
-                        showNameplate();
+
+
                     }
                 });
                 background.start();
+                showNameplate();
                 setText();
             }
         });
