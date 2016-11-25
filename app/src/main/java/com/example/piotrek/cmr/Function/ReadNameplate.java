@@ -8,15 +8,13 @@ import com.example.piotrek.cmr.Util.Converter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.example.piotrek.cmr.Util.Converter.convertToHex;
-
 public class ReadNameplate {
-    public byte[] responseInByte;
+
 
     public NameplateDetail readNameplate(ConnectThread ct) {
         NameplateDetail nameplateDetails = new NameplateDetail();
         try {
-            String data = Converter.convertHexToString(convertToHex(ct.receive(ct.is)));
+            String data = Converter.convertToHex(ct.receive(ct.is));
             String responseNameplate = "";
             ArrayList<String> responseNamePlateList = new ArrayList();
             for (int i = 0; i < data.length(); i += 2) {
