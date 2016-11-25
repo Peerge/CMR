@@ -22,8 +22,8 @@ import com.example.piotrek.cmr.R;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //TODO Sprawdzić czy input jest dobrze napisany bo wyrzuca NullPointera
-    private String ip = "172.21.77.137";
-    private int port = 4444;
+    private String ip = "217.153.10.141";
+    private int port = 6503;
     private Button btn_connect = null;
     private Button btn_restart = null;
     private String gmAddress = "11500";
@@ -71,10 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
-                ReadNameplate rnp = new ReadNameplate();
-                rnp.readNameplate(connectThread);
-                showNameplate();
-//                setColor();
+                Thread background = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ReadNameplate rnp = new ReadNameplate();
+                        rnp.readNameplate(connectThread);
+                        showNameplate();
+                    }
+                });
+                background.start();
                 setText();
             }
         });
