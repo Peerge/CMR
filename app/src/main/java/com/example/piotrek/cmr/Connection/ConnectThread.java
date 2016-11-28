@@ -59,7 +59,7 @@ public class ConnectThread {
         try {
             os.write(byteData, 0, byteData.length);
             os.flush();
-            Log.d("OutputStream", String.valueOf(os));
+            Log.d("OutputStream", String.valueOf(byteData));
 
         } catch (Exception e) {
             e.getStackTrace();
