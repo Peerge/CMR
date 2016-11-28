@@ -54,7 +54,7 @@ public class ConnectThread  {
 
     public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
-            byte[] inputData = null;
+            byte[] inputData = new byte[16];
             is.read(inputData, 0, inputData.length);
             return inputData;
         } catch (Exception exception) {
