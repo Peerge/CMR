@@ -43,7 +43,7 @@ public class ConnectThread {
             byte[] inputData = new byte[0];
             byte[] buff = new byte[1024];
             int k = -1;
-            while ((k = is.read(buff, 0, buff.length)) > -1) {
+            while ((k = is.read(buff, 0, buff.length)) != -1) {
                 byte[] tbuff = new byte[inputData.length + k];
                 System.arraycopy(inputData, 0, tbuff, 0, inputData.length);
                 System.arraycopy(buff, 0, tbuff, inputData.length, k);
