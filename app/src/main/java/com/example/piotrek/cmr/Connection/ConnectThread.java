@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
-public class ConnectThread  {
+public class ConnectThread {
 
     private Socket socket;
     private String ip = "217.153.10.141";
@@ -38,24 +38,17 @@ public class ConnectThread  {
 
     }
 
-//    public byte[] getResponse() {
-//        byte[] buffer = null;
-//        try {
-//            while (is != null) {
-//                buffer = receive(is);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return buffer;
-//    }
-
-
     public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
-            byte[] inputData = new byte[16];
-            is.read(inputData, 0, inputData.length);
+            byte[] inputData = new byte[0];
+            byte[] buff = new byte[1024];
+            int k = -1;
+            while ((k = is.read(buff, 0, buff.length)) > -1) {
+                byte[] tbuff = new byte[inputData.length + k];
+                System.arraycopy(inputData, 0, tbuff, 0, inputData.length);
+                System.arraycopy(buff, 0, tbuff, inputData.length, k);
+                inputData = tbuff;
+            }
             return inputData;
         } catch (Exception exception) {
             throw exception;
