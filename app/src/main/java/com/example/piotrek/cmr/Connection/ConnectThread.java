@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
-public class ConnectThread implements Runnable {
+public class ConnectThread  {
 
     private Socket socket;
     private String ip = "217.153.10.141";
@@ -24,7 +24,7 @@ public class ConnectThread implements Runnable {
         this.port = port;
     }
 
-    public void run() {
+    public void connectSocket() {
         try {
             socket = new Socket();
             socket.connect(new InetSocketAddress(this.ip, this.port));
@@ -55,7 +55,7 @@ public class ConnectThread implements Runnable {
     public static byte[] receive(BufferedInputStream is) throws Exception {
         try {
             byte[] inputData = null;
-            is.read(inputData, 0, inputData.length - 1);
+            is.read(inputData, 0, inputData.length);
             return inputData;
         } catch (Exception exception) {
             throw exception;
@@ -64,7 +64,7 @@ public class ConnectThread implements Runnable {
 
     public static void send(BufferedOutputStream os, byte[] byteData) throws Exception {
         try {
-            os.write(byteData, 0, byteData.length - 1);
+            os.write(byteData, 0, byteData.length);
             os.flush();
             Log.d("OutputStream", String.valueOf(os));
 

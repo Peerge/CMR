@@ -56,13 +56,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 Log.d(TAG, "Connection starting");
+
 
                 Thread background = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        connectThread = new ConnectThread(ip, port);
                         try {
+                            connectThread = new ConnectThread(ip, port);
+                            connectThread.connectSocket();
                             ConnectThread.send(connectThread.os, getnameplate.getQuestion());
                         } catch (Exception e) {
                             e.printStackTrace();
