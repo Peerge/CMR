@@ -14,6 +14,7 @@ public class ConnectThread implements Runnable {
     private Socket socket;
     private String ip = "217.153.10.141";
     private int port = 6503;
+    private int timeOut = 5000;
     public boolean isConnect;
     public BufferedInputStream is;
     public BufferedOutputStream os;
@@ -27,7 +28,7 @@ public class ConnectThread implements Runnable {
     public void run() {
         try {
             socket = new Socket();
-            socket.connect(new InetSocketAddress(this.ip, this.port));
+            socket.connect(new InetSocketAddress(this.ip, this.port), this.timeOut);
             os = new BufferedOutputStream(socket.getOutputStream());
             is = new BufferedInputStream(socket.getInputStream());
             isConnect = socket.isConnected();
@@ -66,6 +67,7 @@ public class ConnectThread implements Runnable {
         try {
             os.write(byteData, 0, byteData.length);
             os.flush();
+            os.close();
             Log.d("OutputStream", String.valueOf(os));
 
         } catch (Exception e) {

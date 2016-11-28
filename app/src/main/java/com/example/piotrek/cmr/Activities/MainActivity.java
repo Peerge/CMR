@@ -21,13 +21,13 @@ import com.example.piotrek.cmr.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity"; //TODO Sprawdzić czy input jest dobrze napisany bo wyrzuca NullPointera
+    private static final String TAG = "MainActivity";
     private String ip = "217.153.10.141";
     private int port = 6503;
     private Button btn_connect = null;
     private Button btn_restart = null;
     private String gmAddress = "11500";
-    private String hostAddress = "FFFF"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
+    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
     private TextView manufacturerText;
     private TextView deviceTypeText;
     private TextView deviceIdText;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView otherText;
     NameplateDetail np;
 
-    GetNameplate getnameplate = new GetNameplate(gmAddress, hostAddress);
+    GetNameplate getnameplate = new GetNameplate(this.gmAddress, this.hostAddress);
     ConnectThread connectThread;
 
     public MainActivity() throws Exception {
