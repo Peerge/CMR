@@ -55,21 +55,18 @@ public class MainActivity extends AppCompatActivity {
         btn_connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                connectThread = new ConnectThread(ip, port);
-                new Thread(connectThread).start();
+
                 Log.d(TAG, "Connection starting");
-                if (connectThread.isConnect) {
-                    btn_connect.setText("Disconnect");
-                }
-                try {
-                    ConnectThread.send(connectThread.os, getnameplate.getQuestion());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
                 Thread background = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        connectThread = new ConnectThread(ip, port);
+                        try {
+                            ConnectThread.send(connectThread.os, getnameplate.getQuestion());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         ReadNameplate rnp = new ReadNameplate();
                         rnp.readNameplate(connectThread);
 
