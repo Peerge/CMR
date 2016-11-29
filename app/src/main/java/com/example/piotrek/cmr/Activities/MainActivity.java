@@ -22,10 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private String ip = "217.153.10.141";
     private int port = 6503;
-    private Button btn_connect = null;
-    private Button btn_restart = null;
     private String gmAddress = "11500";
-    private String hostAddress = "FFFF"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
+    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
     private TextView manufacturerText;
     private TextView deviceTypeText;
     private TextView deviceIdText;
@@ -47,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        btn_connect = (Button) this.findViewById(R.id.btn_connect);
-        btn_restart = (Button) this.findViewById(R.id.btn_restart);
+        Button btn_connect = (Button) this.findViewById(R.id.btn_connect);
+        Button btn_restart = (Button) this.findViewById(R.id.btn_restart);
 
 
 
@@ -63,12 +61,12 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             connectThread = new ConnectThread(ip, port);
                             connectThread.connectSocket();
-                            ConnectThread.send(connectThread.os, getnameplate.getQuestion());
+                            connectThread.send(connectThread.os, getnameplate.getQuestion());
+                            ReadNameplate rnp = new ReadNameplate();
+                            rnp.readNameplate(connectThread);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        ReadNameplate rnp = new ReadNameplate();
-                        rnp.readNameplate(connectThread);
 
                     }
                 });
@@ -126,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
             zdVersionText.setText(np.getArrayZdVersion());
             otherText.setText(np.getOtherInfo());
         } catch (NullPointerException e) {
-            manufacturerText.setText("Brak danych");
-            deviceTypeText.setText("Brak danych");
-            deviceIdText.setText("Brak danych");
-            dpVersionText.setText("Brak danych");
-            zdVersionText.setText("Brak danych");
-            otherText.setText("Brak danych");
+            manufacturerText.setText(R.string.NullExceptCase);
+            deviceTypeText.setText(R.string.NullExceptCase);
+            deviceIdText.setText(R.string.NullExceptCase);
+            dpVersionText.setText(R.string.NullExceptCase);
+            zdVersionText.setText(R.string.NullExceptCase);
+            otherText.setText(R.string.NullExceptCase);
         }
     }
 }
