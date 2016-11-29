@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private String ip = "217.153.10.141";
     private int port = 6503;
     private String gmAddress = "11500";
-    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
+    private String hostAddress = "217.153.10.141";
     private TextView manufacturerText;
     private TextView deviceTypeText;
     private TextView deviceIdText;
