@@ -56,10 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 Log.d(TAG, "Connection starting");
-
-
                 Thread background = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -72,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         ReadNameplate rnp = new ReadNameplate();
                         rnp.readNameplate(connectThread);
-
 
                     }
                 });
