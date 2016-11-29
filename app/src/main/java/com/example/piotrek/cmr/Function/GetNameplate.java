@@ -6,10 +6,10 @@ public class GetNameplate extends MessageFrame{
     private static final byte MSG_NUMBER = (byte) 9;
     private static final int MSG_LENGHT = 5;
 
-    public GetNameplate(String gmAdress, String hostAdress) throws Exception {
+    public GetNameplate(String gmAdress, String hostAddress) throws Exception {
         this.question = new byte[7];
         this.questionFrame = new byte[11];
-        prepareQuestion(gmAdress, hostAdress);
+        prepareQuestion(gmAdress, hostAddress);
         setFunctionCode(MSG_NUMBER);
         setQuestionLenght(MSG_LENGHT);
         getCrc();

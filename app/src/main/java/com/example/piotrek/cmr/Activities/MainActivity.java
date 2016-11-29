@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_connect = null;
     private Button btn_restart = null;
     private String gmAddress = "11500";
-    private String hostAddress = "AAAA"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
+    private String hostAddress = "FFFF"; //TODO Sprawdzić czy te dwa adresy (gm i host) są poprawne
     private TextView manufacturerText;
     private TextView deviceTypeText;
     private TextView deviceIdText;
