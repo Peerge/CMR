@@ -52,8 +52,8 @@ public class ReadNameplate {
             } else {
                 nameplateDetails.setArrayZdVersion("Brak danych");
             }
-            if (responseNamePlateList.size() >= 7) {
-                nameplateDetails.setOtherInfo(Converter.convertHexToString(responseNamePlateList.get(6)));
+            if (responseNamePlateList.size() >= 6) {
+                nameplateDetails.setOtherInfo(Converter.convertHexToString(responseNamePlateList.get(5)));
             } else {
                 nameplateDetails.setOtherInfo("Brak danych");
             }

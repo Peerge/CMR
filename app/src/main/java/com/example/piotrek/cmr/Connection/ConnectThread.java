@@ -39,7 +39,7 @@ public class ConnectThread {
 
     }
 
-    public static byte[] receive(BufferedInputStream is) throws Exception {
+    public byte[] receive(BufferedInputStream is) throws Exception {
         try {
             byte[] inputData = new byte[0];
             byte[] buff = new byte[1024];
@@ -56,7 +56,7 @@ public class ConnectThread {
         }
     }
 
-    public static void send(BufferedOutputStream os, byte[] byteData) throws Exception {
+    public void send(BufferedOutputStream os, byte[] byteData) throws Exception {
         try {
             os.write(byteData, 0, byteData.length);
             os.flush();

@@ -42,8 +42,7 @@ public class Converter {
     }
 
     public static String makeHexFromString(String addressGM) throws Exception {
-        String temp = Integer.toHexString(Integer.parseInt(addressGM)).toString();
-        return  temp;
+        return Integer.toHexString(Integer.parseInt(addressGM));
     }
 
     public static String convertToHex(byte[] data) {
